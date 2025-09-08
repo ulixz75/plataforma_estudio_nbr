@@ -9,7 +9,7 @@ import { Button } from "@nextui-org/button";
 import Typed from "typed.js";
 import { AnimatePresence, motion } from "framer-motion";
 import prompts from "@/lib/prompts";
-import interactionGemini from "@/lib/geminiClient";
+import interactionHuggingFace from "@/lib/huggingfaceClient";
 import { BadgeFill } from "../Icons";
 
 const StudyPlatformLoading = () => {
@@ -83,7 +83,7 @@ const StudyPlatform = () => {
         while (attempts < 5) {
             try {
                 const prompt = prompts.generateModules(studyMaterial);
-                const response = await interactionGemini(prompt, personality);
+                const response = await interactionHuggingFace(prompt, personality);
                 const responseText = response.text();
                 console.log(responseText);
 
@@ -112,7 +112,7 @@ const StudyPlatform = () => {
         while (attempts < 5) {
             try {
                 const prompt = prompts.generateModule(studyPlatform.modulos[studyPlatform.actModule]);
-                const response = await interactionGemini(prompt, personality, generationHistory);
+                const response = await interactionHuggingFace(prompt, personality, generationHistory);
                 const responseText = response.text();
                 console.log(responseText);
 
