@@ -22,9 +22,10 @@ export default function Error({
 	}, [error, setIntroduction, setStudyPlatform])
 
 	return (
-		<AnimatePresence>
-			<motion.div
-				key="introduction-logo"
+		<>
+			<AnimatePresence>
+				<motion.div
+					key="introduction-logo"
 				initial="initial"
 				animate="in"
 				exit="out"
@@ -45,5 +46,6 @@ export default function Error({
 				</div>
 			</motion.div>
 		</AnimatePresence>
+		</>
 	)
 }
